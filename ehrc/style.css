@@ -1,0 +1,213 @@
+*,
+*:before,
+*:after{
+	box-sizing: inherit;
+	margin: 0;
+	padding-top: 0;
+}
+
+html{
+	box-sizing: border-box;
+	background: #F9ECEE;
+	text-align: center;
+}
+
+a{
+	color:inherit;
+}
+
+body{
+	font-size: 1em;
+	line-height: 1.5;
+	font-family: 'Open Sans', sans-serif;
+	max-width: 43.75em; /*880/16*/
+	margin: 0 auto;
+	padding: 0;
+	color: #4A4A4A;
+
+}
+
+header{
+	margin: 1em 0 2em;
+}
+
+header h1{
+	font-family: 'Patua One', cursive;
+	font-size: 3em;
+	margin: 0;
+}
+
+header h1 a{
+	text-decoration: none;
+}
+
+header p{
+	margin-top: -.900em;
+	font-size: .875em; /*14/16*/
+}
+
+.but button{
+	color: #000000;
+	background-color: #ECF9F7;
+	border-radius: 3px 3px 3px 3px	;
+	cursor: pointer;
+	font-family: 'Open Sans', sans-serif;
+	font:300;
+	padding: 10px;
+	font-size:16px;
+}  
+
+/*For auto-complete related stuff*/
+
+.autocomplete-items {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+  }
+  
+  .autocomplete-items div {
+	padding: 10px;
+	cursor: pointer;
+	background-color: #fff; 
+	border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+	background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+	background-color: DodgerBlue !important; 
+	color: #ffffff; 
+  }
+
+
+/*form input this is styles for the form input and button */
+
+form{
+	position: relative;
+}
+
+form input{
+	width:100%;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	padding:.625em .85em;
+	padding-right: 7em;
+	line-height: 1.5;
+	margin: 0;
+	border: 1px solid #4A4A4A;
+	box-shadow: 0 1px 3px rgba(0,0,0, .1) inset,
+				0 2px 4px rgba(0,0,0, .1);
+	border-radius: 3px;
+}
+
+form input:focus{
+    outline: none;
+
+}
+
+form button{
+	text-decoration: none;
+	background: #4A4A4A;
+	height: 100%;
+	position: absolute;
+	right:0;
+	top:0;
+	line-height: 1.5;
+	color:white;
+	font-size: 1em;
+	border-radius: 0 3px 3px 0;
+	border:0;
+	outline: 0;
+	text-align: center;
+	margin: 0;
+	padding: 0 1em;
+	font-family: 'Open Sans', sans-serif;
+}
+
+form button:hover{
+	cursor:pointer;
+}
+
+form button:disabled{
+	opacity:0.5;
+}
+
+/* Content styles for the main container of contet, ie the icons error msgs etc */
+
+.wrapper{
+	background: #fff;
+	border: 1px solid #4A4A4A;
+	text-align: left;
+	padding: 2em;
+	margin: .5em 0 2em;
+	box-shadow: 0 2px 4px rgba(0,0,0, .1);
+	border-radius: 3px;
+	position: relative;
+}
+.content{
+	max-width: 512px;
+	margin: 0 auto;
+	position: relative;
+	word-wrap: break-word;
+}
+
+.content *{ /*do a simple reset on elements in content */
+	margin: 0;
+	padding: 0;
+
+}
+
+.content strong{
+	font-weight: bold;
+	display: block;
+}
+
+.content input{
+	width:100%;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	padding:.625em .85em;
+	padding-right: 7em;
+	line-height: 1.5;
+	margin: 0;
+	border: 1px solid #4A4A4A;
+	box-shadow: 0 1px 3px rgba(0,0,0, .1) inset,
+				0 2px 4px rgba(0,0,0, .1);
+	border-radius: 3px;
+}
+
+.content input:focus{
+    outline: none;
+
+}
+
+.content button{
+	text-decoration: none;
+	background: #4A4A4A;
+	height: 100%;
+	position: absolute;
+	right:0;
+	top:0;
+	line-height: 1.5;
+	color:white;
+	font-size: 1em;
+	border-radius: 0 3px 3px 0;
+	border:0;
+	outline: 0;
+	text-align: center;
+	margin: 0;
+	padding: 0 1em;
+	font-family: 'Open Sans', sans-serif;
+}

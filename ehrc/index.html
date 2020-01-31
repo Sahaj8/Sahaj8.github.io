@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>EHRC-Smart Decoder</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+<head>
+	<meta charset="utf-8">
+	<title>Prescription</title>
+	<meta name="viewport" content="width=device-width", inital-scale="1.0">
+	<link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet" type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" type='text/css'>
+</head>
+<body>
+	<header>
+		<h1><a href="#"></a>EHRC-Smart Decoder</a></h1>
+	</header>
+	<main>
+		<!--input-->
+		<form autocomplete="off" class="submit">
+			<div class="autocomplete"></div>
+				<input type="text" id="input" placeholder="Enter details here">
+		</form>
+		
+		<div class="but">
+			<button type="submit" onclick="myFunction2()">Enter</button></form> 
+		</div>
+
+		<!--output-->
+		<div class="wrapper">
+			<div class="content">
+				<h2><center>OUTPUT</center></h2><br>
+				<form>
+					Medicine Name:
+					<input type="text" name="firstname" id="mn" value=""><br><br>
+					Dosage:
+					<input type="text" name="lastname" id="dos" value=""><br><br>
+					Dosing Time:
+					<input type="text" name="lastname" id="dtime" value=""><br><br>
+					Duration:
+					<input type="text" name="lastname" id="dur" value=""><br><br>
+					Duration Type:
+					<input type="text" name="lastname" id="dtype" value=""><br><br>
+					Remark:
+					<input type="text" name="lastname" id="mark" value="">
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+<!-- partial -->
+  	<script  src="./script.js"></script>
+
+<script>
+
+// Function for autocomplete feature
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  
+    inp.addEventListener("input", function(e) {
+        var a, b, i, val = this.value;      
+        closeAllLists();
+        if (!val) { return false;}
+        currentFocus = -1;
+
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        
+        this.parentNode.appendChild(a);
+      
+        for (i = 0; i < arr.length; i++) {
+        
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {          
+            
+            b = document.createElement("DIV");          
+            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length);          
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";          
+            b.addEventListener("click", function(e) {
+                inp.value = this.getElementsByTagName("input")[0].value;
+                closeAllLists();
+            });
+
+            a.appendChild(b);
+        }
+      }
+  });
+
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            currentFocus++;
+            addActive(x);
+        } 
+        else if (e.keyCode == 38) {
+            currentFocus--;
+            addActive(x);
+        }
+        else if (e.keyCode == 13) {
+            e.preventDefault();
+            if (currentFocus > -1) {
+                if (x) x[currentFocus].click();
+            }
+        }
+    });
+
+    function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+        x[i].classList.remove("autocomplete-active");
+        }
+    }
+    function closeAllLists(elmnt) {
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
+}
+autocomplete(document.getElementById("input"), medicine1);
+</script>
+</body>
+</html>
