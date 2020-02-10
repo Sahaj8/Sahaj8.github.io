@@ -257,8 +257,20 @@ function myFunction2() {
   else
       mark="-";
 
-  if(med1==1)
+  if(med1==1 && dos!="-")
     check_dose1(do1,y,medicine2[mn]);
+
+  if(dur == "") {
+      dur = "-";
+  }
+	
+	var t = mn.split("_");
+	var mn1="";
+	for(var i=0;i<t.length;i++) {
+      mn1 = mn1+" "+t[i];
+  }
+	mn = mn1.trim();
+	console.log(mn);
 
   console.log(a);
   console.log(dos);
