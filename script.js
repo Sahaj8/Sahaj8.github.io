@@ -289,7 +289,7 @@ function myFunction2() {
 
 function check_no(n) {
   for(var i=0;i<n.length;i++) {
-      if(n[i]>='0' && n[i]<='9')
+      if((n[i]>='0' && n[i]<='9') || n[i]=='.')
           continue;
       else
           return 0;
